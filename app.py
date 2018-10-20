@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 from flask import request
 from flask import jsonify
 from pymemcache.client import base
@@ -27,6 +28,11 @@ natural_language_understanding = NaturalLanguageUnderstandingV1(
 cache = base.Client(('localhost', 11211))
 
 @app.route('/')
+@app.route('/index.html')
+def get_dashboard():
+	return render_template('pages/index.html')
+
+@app.route('/get_stock_prediction')
 def get_stock_prediction():
 	ticker_symbol = request.args.get("ticker_symbol")
 
