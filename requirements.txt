@@ -9,6 +9,7 @@ idna==2.7
 ItsDangerous==1.0.0
 Jinja2==2.10
 MarkupSafe==1.0
+psycopg2-binary==2.7.5
 pycparser==2.19
 pymemcache==2.0.0
 pyOpenSSL==18.0.0
