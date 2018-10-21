@@ -17,10 +17,16 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ url_for('static', filename = 'jumbotron.css') }}" rel="stylesheet">
+
+    <script type="text/javascript">
+    function analyzeTicker() {
+      var ticker_symbol = document.getElementById('input').value;
+      window.location.href = "./get_stock_prediction?ticker_symbol=" + ticker_symbol;
+    }
+    </script>
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #50c878;">
       <div class="container">
         <div class="navbar-header">
@@ -32,14 +38,14 @@
           </button>
           <a class="navbar-brand" style="color: #000000;">Stock Prediction</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-        </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container" background="bgimage.jpg">
+        <input id="input" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" style="margin-top: 24px;">
+        <button class="btn-success btn-outline-success my-2 my-sm-0" onclick="analyzeTicker()" style="margin-top: 12px;">Search</button>
 
         <h2> Stats for {{ ticker }}</h2>
         <h3>Prediction Score: <span class="label label-success" style="margin-top: 80px;">{{ score }}</span></h3>
